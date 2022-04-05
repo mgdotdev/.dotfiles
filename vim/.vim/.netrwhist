@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/michael/.dotfiles/vim'
+let g:netrw_dirhist_4='/home/michael/Code/python/.sandbox'
+let g:netrw_dirhist_3='/home/michael/Code/python'
+let g:netrw_dirhist_2='/home/michael/Code'
+let g:netrw_dirhist_1='/home/michael'
+let g:netrw_dirhist_0='/home/michael/Code/python/.sandbox'
+let g:netrw_dirhist_9='/home/michael/Code/python'
+let g:netrw_dirhist_8='/home/michael/Code'
+let g:netrw_dirhist_7='/home/michael'
+let g:netrw_dirhist_6='/home/michael/.dotfiles'

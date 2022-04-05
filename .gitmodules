@@ -1,0 +1,3 @@
+[submodule "vim/.vim/pack/vendor/start/darcula"]
+	path = vim/.vim/pack/vendor/start/darcula
+	url = https://github.com/doums/darcula.git
