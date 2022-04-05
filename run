@@ -1,0 +1,19 @@
+install() {
+        pushd ~/.dotfiles > /dev/null
+
+        for folder in $(ls -d */ | sed "s/,/ /g")
+        do
+            stow -D $folder
+            stow $folder
+        done
+        popd > /dev/null
+}
+
+clean() {
+    echo "nothing here yet..."
+}
+
+case $1 in
+    "install") install $@ ;;
+    "clean") clean $@ ;;
+esac
