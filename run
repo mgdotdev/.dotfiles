@@ -1,4 +1,8 @@
 install() {
+    if [ $2 = "deps" ]
+    then
+        sudo pacman -Sy stow fzf
+    else
         pushd ~/.dotfiles > /dev/null
 
         for folder in $(ls -d */ | sed "s/,/ /g")
@@ -7,6 +11,7 @@ install() {
             stow $folder
         done
         popd > /dev/null
+    fi
 }
 
 clean() {
