@@ -3,10 +3,10 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow
+            sudo pacman -Sy stow the_silver_searcher
         elif [ -x "$(command -v apt-get)" ]
         then
-            sudo apt-get install stow
+            sudo apt-get install stow silversearcher-ag
         fi
         git submodule update
     else

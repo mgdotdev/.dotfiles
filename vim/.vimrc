@@ -19,6 +19,7 @@ set incsearch
 set history=1000
 
 set rtp+=~/.fzf
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
