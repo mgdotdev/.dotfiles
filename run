@@ -27,7 +27,6 @@ clean() {
     for folder in $(ls -d */ | sed "s/,/ /g")
     do
         stow -D $folder
-        stow $folder
     done
     ~/.fzf/uninstall
 }
