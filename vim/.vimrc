@@ -3,6 +3,7 @@ syntax on
 set rtp+=~/.fzf
 set number
 set tabstop=4
+set shiftwidth=4
 set expandtab
 set laststatus=2
 set incsearch

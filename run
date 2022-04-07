@@ -24,7 +24,12 @@ install() {
 }
 
 clean() {
-    echo "nothing here yet..."
+    for folder in $(ls -d */ | sed "s/,/ /g")
+    do
+        stow -D $folder
+        stow $folder
+    done
+    ~/.fzf/uninstall
 }
 
 case $1 in
