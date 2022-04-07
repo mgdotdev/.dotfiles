@@ -1,7 +1,14 @@
 install() {
     if [ $2 = "deps" ]
     then
-        sudo pacman -Sy stow
+        git submodule update
+        if [ -x "$(command -v pacman)" ]
+        then
+            sudo pacman -Sy stow
+        elif [ -x "$(command -v apt-get)" ]
+        then
+            sudo apt-get install stow
+        fi
     else
         pushd ~/.dotfiles > /dev/null
 
