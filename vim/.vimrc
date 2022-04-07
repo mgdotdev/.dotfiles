@@ -16,6 +16,8 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 20
 
 colorscheme darcula
+hi! Normal ctermbg=NONE guibg=NONE
+highlight clear LineNr
 
 command Vx Vex!
 cnoreabbrev Z FZF
