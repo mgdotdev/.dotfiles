@@ -28,6 +28,7 @@ let g:netrw_winsize = 20
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeWinSize = 25
 let g:NERDTreeMinimalUI=1
+let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
@@ -37,8 +38,6 @@ hi! Normal ctermbg=NONE guibg=NONE
 highlight clear LineNr
 
 command Vx Vex!
-cnoreabbrev Z FZF
-
 nnoremap Y y$
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
@@ -46,6 +45,9 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+cnoreabbrev Z FZF
+cnoreabbrev NT NERDTree
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
