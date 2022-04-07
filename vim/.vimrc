@@ -27,6 +27,7 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 20
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeWinSize = 20
+let NERDTreeMinimalUI=1
 
 colorscheme darcula
 hi! Normal ctermbg=NONE guibg=NONE
