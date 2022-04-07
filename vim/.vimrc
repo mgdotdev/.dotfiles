@@ -1,5 +1,6 @@
 syntax on
 
+set rtp+=~/.fzf
 set number
 set tabstop=4
 set expandtab

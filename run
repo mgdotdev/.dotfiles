@@ -1,7 +1,7 @@
 install() {
     if [ $2 = "deps" ]
     then
-        sudo pacman -Sy stow fzf
+        sudo pacman -Sy stow
     else
         pushd ~/.dotfiles > /dev/null
 
@@ -10,6 +10,7 @@ install() {
             stow -D $folder
             stow $folder
         done
+        ~/.fzf/install
         popd > /dev/null
     fi
 }
