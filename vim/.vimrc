@@ -1,15 +1,24 @@
 syntax on
 
-set rtp+=~/.fzf
+set smartindent
 set number
+set nohlsearch
+set noerrorbells
+set hidden
+set incsearch
+set termguicolors
+set expandtab
+
+set colorcolumn=80
+set scrolloff=8
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab
 set laststatus=2
 set incsearch
 set history=1000
-set termguicolors
+
+set rtp+=~/.fzf
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -31,4 +40,15 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup MG_GROUP
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup END
 
