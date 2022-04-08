@@ -13,3 +13,6 @@
 [submodule "vim/.vim/pack/vendor/start/nerdtree"]
 	path = vim/.vim/pack/vendor/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "vim/.vim/pack/vendor/start/ack.vim"]
+	path = vim/.vim/pack/vendor/start/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
