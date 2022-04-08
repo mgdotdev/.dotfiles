@@ -10,28 +10,35 @@ install() {
         fi
         git submodule update
     else
-        pushd ~/.dotfiles > /dev/null
+        pushd ~/.dotfiles
 
         for folder in $(ls -d */ | sed "s/,/ /g")
         do
-            stow -D $folder
             stow $folder
         done
-        ~/.fzf/uninstall
         ~/.fzf/install
-        popd > /dev/null
+        vim +PlugInstall +qall
+        popd
     fi
 }
 
-clean() {
-    for folder in $(ls -d */ | sed "s/,/ /g")
-    do
-        stow -D $folder
-    done
-    ~/.fzf/uninstall
+remove() {
+        rm -rf ~/.config/coc/extensions/
+        vim +PlugUninstall +qall
+        for folder in $(ls -d */ | sed "s/,/ /g")
+        do
+            stow -D $folder
+        done
+        ~/.fzf/uninstall
+}
+
+reinstall() {
+    remove
+    install
 }
 
 case $1 in
     "install") install $@ ;;
-    "clean") clean $@ ;;
+    "remove") remove $@ ;;
+    "reinstall") reinstall $@ ;;
 esac
