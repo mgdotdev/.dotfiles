@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'doums/darcula'
     Plug 'mileszs/ack.vim'
+    Plug 'preservim/nerdtree'
 call plug#end()
 
 syntax on
@@ -34,6 +35,12 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
+let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinSize = 25
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 colorscheme darcula
 hi! Normal ctermbg=NONE guibg=NONE
@@ -50,6 +57,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 cnoreabbrev Z FZF
 cnoreabbrev A Ack
+cnoreabbrev NT NERDTree
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
