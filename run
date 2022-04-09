@@ -8,6 +8,8 @@ install() {
         then
             sudo apt-get install stow silversearcher-ag
         fi
+        sudo npm install -g neovim
+        python -m pip install pynvim
         git submodule update
     else
         pushd ~/.dotfiles
@@ -17,14 +19,14 @@ install() {
             stow $folder
         done
         ~/.fzf/install
-        vim +PlugInstall +qall
+        nvim +PlugInstall +qall
         popd
     fi
 }
 
 remove() {
         rm -rf ~/.config/coc/extensions/
-        vim +PlugUninstall +qall
+        nvim +PlugUninstall +qall
         for folder in $(ls -d */ | sed "s/,/ /g")
         do
             stow -D $folder
