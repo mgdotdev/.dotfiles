@@ -1,10 +1,10 @@
 call plug#begin('~/.config/nvim/plugins')
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'doums/darcula'
     Plug 'mileszs/ack.vim'
     Plug 'preservim/nerdtree'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-
+let g:deoplete#enable_at_startup = 1
 syntax on
 
 set smartindent
@@ -17,7 +17,7 @@ set termguicolors
 set expandtab
 set nowrap
 set colorcolumn=80
-set scrolloff=8
+set scrolloff=10
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -77,21 +77,23 @@ augroup MG_GROUP
     autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup END
 
+function! Expand()
+    if pumvisible() && complete_info()['selected'] != -1
+        return coc#_select_confirm()
+    else
+        if coc#expandableOrJumpable()
+            return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+        else
+            return "\<C-g>u\<CR>"
+        endif
+    endif
+endfunction
 
-" === COC === "
+inoremap <silent><expr> <CR> Expand()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-git', 'coc-svelte', 'coc-tsserver', 'coc-yaml', 'coc-go', 'coc-clangd', 'coc-docker', 'coc-sh', 'coc-snippets']
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -108,11 +110,9 @@ function! s:show_documentation()
   endif
 endfunction
 
-command Vd :call <SID>show_documentation()<CR>
-
 nmap <leader>rn <Plug>(coc-rename)
 
 command! -nargs=0 Format :call CocActionAsync('format')
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
