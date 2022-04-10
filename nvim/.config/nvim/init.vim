@@ -1,11 +1,13 @@
 call plug#begin('~/.config/nvim/plugins')
     Plug 'doums/darcula'
     Plug 'mileszs/ack.vim'
-    Plug 'preservim/nerdtree'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'lambdalisue/nerdfont.vim'
 call plug#end()
 let g:deoplete#enable_at_startup = 1
+
 syntax on
+colorscheme darcula
 
 set smartindent
 set number
@@ -30,23 +32,15 @@ set rtp+=~/.fzf
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let mapleader = " "
 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
-let g:NERDTreeWinPos = "right"
-let g:NERDTreeWinSize = 25
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeQuitOnOpen=1
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
-
-colorscheme darcula
 hi! Normal ctermbg=NONE guibg=NONE
 highlight clear LineNr
 
 command Vx Vex!
+command E CocCommand explorer --sources=buffer+,file-
+
+cnoreabbrev Z FZF
+cnoreabbrev A Ack
+
 nnoremap Y y$
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
@@ -54,10 +48,6 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-cnoreabbrev Z FZF
-cnoreabbrev A Ack
-cnoreabbrev NT NERDTree
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -93,7 +83,21 @@ inoremap <silent><expr> <CR> Expand()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-git', 'coc-svelte', 'coc-tsserver', 'coc-yaml', 'coc-go', 'coc-clangd', 'coc-docker', 'coc-sh', 'coc-snippets']
+let g:coc_global_extensions =
+            \ [
+            \   'coc-pyright',
+            \   'coc-json',
+            \   'coc-git',
+            \   'coc-svelte',
+            \   'coc-tsserver',
+            \   'coc-yaml',
+            \   'coc-go',
+            \   'coc-clangd',
+            \   'coc-docker',
+            \   'coc-sh',
+            \   'coc-snippets',
+            \   'coc-explorer'
+            \ ]
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
