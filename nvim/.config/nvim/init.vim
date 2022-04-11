@@ -4,7 +4,6 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'lambdalisue/nerdfont.vim'
 call plug#end()
-let g:deoplete#enable_at_startup = 1
 
 syntax on
 colorscheme darcula
@@ -32,12 +31,32 @@ set guicursor=i:block
 set rtp+=~/.fzf
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let mapleader = " "
+let g:ale_set_signs = 0
+let g:deoplete#enable_at_startup = 1
+let g:coc_global_extensions =
+            \ [
+                \   'coc-pyright',
+                \   'coc-json',
+                \   'coc-git',
+                \   'coc-svelte',
+                \   'coc-tsserver',
+                \   'coc-yaml',
+                \   'coc-go',
+                \   'coc-clangd',
+                \   'coc-docker',
+                \   'coc-sh',
+                \   'coc-snippets',
+                \   'coc-explorer'
+                \ ]
 
 hi! Normal ctermbg=NONE guibg=NONE
 highlight clear LineNr
 
 command Vx Vex!
 command E CocCommand explorer --sources=buffer+,file+
+command! -nargs=0 Format :call CocActionAsync('format')
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 cnoreabbrev Z FZF
 cnoreabbrev A Ack
@@ -49,6 +68,15 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+inoremap <silent><expr> <CR> Expand()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -80,30 +108,6 @@ function! Expand()
     endif
 endfunction
 
-inoremap <silent><expr> <CR> Expand()
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-let g:coc_global_extensions =
-            \ [
-            \   'coc-pyright',
-            \   'coc-json',
-            \   'coc-git',
-            \   'coc-svelte',
-            \   'coc-tsserver',
-            \   'coc-yaml',
-            \   'coc-go',
-            \   'coc-clangd',
-            \   'coc-docker',
-            \   'coc-sh',
-            \   'coc-snippets',
-            \   'coc-explorer'
-            \ ]
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -115,9 +119,5 @@ function! s:show_documentation()
   endif
 endfunction
 
-nmap <leader>rn <Plug>(coc-rename)
 
-command! -nargs=0 Format :call CocActionAsync('format')
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
