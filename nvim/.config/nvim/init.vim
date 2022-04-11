@@ -11,6 +11,7 @@ colorscheme darcula
 
 set smartindent
 set number
+set relativenumber
 set nohlsearch
 set noerrorbells
 set hidden
@@ -36,7 +37,7 @@ hi! Normal ctermbg=NONE guibg=NONE
 highlight clear LineNr
 
 command Vx Vex!
-command E CocCommand explorer --sources=buffer+,file-
+command E CocCommand explorer --sources=buffer+,file+
 
 cnoreabbrev Z FZF
 cnoreabbrev A Ack
