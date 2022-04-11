@@ -27,11 +27,11 @@ set laststatus=2
 set incsearch
 set history=1000
 set guicursor=i:block
+set signcolumn=no
 
 set rtp+=~/.fzf
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let mapleader = " "
-let g:ale_set_signs = 0
 let g:deoplete#enable_at_startup = 1
 let g:coc_global_extensions =
             \ [
