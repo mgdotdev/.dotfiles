@@ -54,6 +54,7 @@ highlight clear LineNr
 
 command Vx Vex!
 command E CocCommand explorer --sources=buffer+,file+
+command! Bd execute '%bdelete|edit#|bdelete#'
 command! -nargs=0 Format :call CocActionAsync('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
