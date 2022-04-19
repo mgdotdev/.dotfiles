@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'mileszs/ack.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'lambdalisue/nerdfont.vim'
+    Plug 'Yggdroot/indentLine'
 call plug#end()
 
 syntax on
@@ -28,8 +29,11 @@ set incsearch
 set history=1000
 set guicursor=i:block
 set signcolumn=no
-
 set rtp+=~/.fzf
+
+let g:indentLine_char = '┆'
+let g:markdown_syntax_conceal=0
+
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let mapleader = " "
 let g:deoplete#enable_at_startup = 1
