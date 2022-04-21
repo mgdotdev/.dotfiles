@@ -34,7 +34,7 @@ set rtp+=~/.fzf
 let g:indentLine_char = '┆'
 let g:markdown_syntax_conceal=0
 
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+let $FZF_DEFAULT_COMMAND = "find . -type f -not -path '*/\.git/*'"
 let mapleader = " "
 let g:deoplete#enable_at_startup = 1
 let g:coc_global_extensions =
