@@ -52,6 +52,7 @@ let g:coc_global_extensions =
                 \   'coc-snippets',
                 \   'coc-explorer'
                 \ ]
+let g:ack_mappings = {"gd": "<CR><C-W>p"}
 
 hi! Normal ctermbg=NONE guibg=NONE
 highlight clear LineNr
