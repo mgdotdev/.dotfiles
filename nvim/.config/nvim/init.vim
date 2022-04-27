@@ -31,6 +31,7 @@ set guicursor=i:block
 set signcolumn=no
 set rtp+=~/.fzf
 
+let g:ack_use_cword_for_empty_search = 1
 let g:python3_host_prog = "/usr/bin/python"
 let g:indentLine_char = '┆'
 let g:markdown_syntax_conceal=0
