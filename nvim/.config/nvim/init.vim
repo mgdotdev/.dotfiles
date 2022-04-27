@@ -76,7 +76,7 @@ command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeI
 cnoreabbrev Z FZF
 cnoreabbrev A Ack
 
-nnoremap <leader>b<space> :ls<CR>:b<Space>
+nnoremap <leader>bb :ls<CR>:b<Space>
 nnoremap <leader>bda :Bd<CR>
 nnoremap <leader>z :FZF<CR>
 nnoremap <leader>a :Ack<space>
