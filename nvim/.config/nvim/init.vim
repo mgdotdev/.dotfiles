@@ -78,6 +78,9 @@ cnoreabbrev A Ack
 
 nnoremap <leader>b<space> :ls<CR>:b<Space>
 nnoremap <leader>bda :Bd<CR>
+nnoremap <leader>z :FZF<CR>
+nnoremap <leader>a :Ack<space>
+
 nnoremap Y y$
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
