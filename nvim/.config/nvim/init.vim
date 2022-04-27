@@ -76,6 +76,8 @@ command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeI
 cnoreabbrev Z FZF
 cnoreabbrev A Ack
 
+nnoremap <leader>b<space> :ls<CR>:b<Space>
+nnoremap <leader>bda :Bd<CR>
 nnoremap Y y$
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
@@ -107,8 +109,6 @@ augroup MG_GROUP
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
     autocmd StdinReadPre * let s:std_in=1
-    autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-    autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup END
 
 function! Expand()
@@ -123,7 +123,6 @@ function! Expand()
     endif
 endfunction
 
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -133,6 +132,4 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-
 
