@@ -31,10 +31,19 @@ set guicursor=i:block
 set signcolumn=no
 set rtp+=~/.fzf
 
+let g:python3_host_prog = "/usr/bin/python"
 let g:indentLine_char = '┆'
 let g:markdown_syntax_conceal=0
 
-let $FZF_DEFAULT_COMMAND = "find . -type f -not -path '*/\.git/*'"
+let $FZF_DEFAULT_COMMAND =
+            \ "
+            \ find . -type f
+            \ -not -path '*/\.git/*'
+            \ -not -path '*/venv/*'
+            \ -not -path '*/__pycache__/*'
+            \ -not -path '*/\.pytest_cache/*'
+            \ "
+
 let mapleader = " "
 let g:deoplete#enable_at_startup = 1
 let g:coc_global_extensions =
