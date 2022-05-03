@@ -91,5 +91,6 @@
     "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
     "suggest.enablePreselect": false,
     "suggest.noselect": true,
-    "EOF": null
+    "EOF": null,
+    "svelte.ask-to-enable-ts-plugin": false
 }

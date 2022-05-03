@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'lambdalisue/nerdfont.vim'
     Plug 'Yggdroot/indentLine'
+    Plug 'tpope/vim-commentary'
 call plug#end()
 
 syntax on
@@ -81,23 +82,30 @@ nnoremap <leader>bb :ls<CR>:b<Space>
 nnoremap <leader>bda :Bd<CR>
 nnoremap <leader>z :FZF<CR>
 nnoremap <leader>a :Ack<space>
-
 nnoremap Y y$
+
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 inoremap <silent><expr> <CR> Expand()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap > >gv
+vnoremap < <gv
+
+map gf :edit <cfile><CR>
 
 nmap <leader>rn <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+cmap w!! %!sudo tee > /dev/null %
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
