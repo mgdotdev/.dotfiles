@@ -3,12 +3,11 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow the_silver_searcher
+            sudo pacman -Sy stow the_silver_searcher neovim
         elif [ -x "$(command -v apt-get)" ]
         then
-            sudo apt-get install stow silversearcher-ag
+            sudo apt-get install stow silversearcher-ag neovim
         fi
-        sudo npm install -g neovim
         python -m pip install pynvim
         git submodule update
     else
@@ -27,11 +26,13 @@ install() {
 remove() {
         rm -rf ~/.config/coc/extensions/
         nvim +PlugUninstall +qall
+        pushd ~/.dotfiles
         for folder in $(ls -d */ | sed "s/,/ /g")
         do
             stow -D $folder
         done
         ~/.fzf/uninstall
+        popd
 }
 
 reinstall() {
