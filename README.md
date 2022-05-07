@@ -9,5 +9,4 @@ cd ~
 git clone https://github.com/1mikegrn/.dotfiles --recursive
 cd ~/.dotfiles
 ./run install deps
-./run install
 ```
