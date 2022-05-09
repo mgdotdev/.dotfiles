@@ -10,17 +10,16 @@ install() {
         fi
         python -m pip install pynvim
         git submodule update
-    else
-        pushd ~/.dotfiles
-
-        for folder in $(ls -d */ | sed "s/,/ /g")
-        do
-            stow $folder
-        done
-        ~/.fzf/install
-        nvim +PlugInstall +qall
-        popd
     fi
+    pushd ~/.dotfiles
+
+    for folder in $(ls -d */ | sed "s/,/ /g")
+    do
+        stow $folder
+    done
+    ~/.fzf/install
+    nvim +PlugInstall +qall
+    popd
 }
 
 remove() {
