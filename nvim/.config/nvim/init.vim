@@ -32,8 +32,8 @@ set guicursor=i:block
 set signcolumn=no
 set rtp+=~/.fzf
 
-let g:ack_use_cword_for_empty_search = 1
 let g:python3_host_prog = "/usr/bin/python"
+let g:ack_use_cword_for_empty_search = 1
 let g:indentLine_char = '┆'
 let g:markdown_syntax_conceal=0
 
@@ -78,11 +78,24 @@ command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeI
 cnoreabbrev Z FZF
 cnoreabbrev A Ack
 
+map gf :edit <cfile><CR>
+
+nmap <leader>Y "+Y
+nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+cmap w!! %!sudo tee > /dev/null %
+
+nnoremap Y y$
 nnoremap <leader>bb :ls<CR>:b<Space>
 nnoremap <leader>bda :Bd<CR>
 nnoremap <leader>z :FZF<CR>
 nnoremap <leader>a :Ack<space>
-nnoremap Y y$
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
 
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
@@ -92,20 +105,13 @@ inoremap <silent><expr> <CR> Expand()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap > >gv
 vnoremap < <gv
 
-map gf :edit <cfile><CR>
-
-nmap <leader>rn <Plug>(coc-rename)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-cmap w!! %!sudo tee > /dev/null %
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
