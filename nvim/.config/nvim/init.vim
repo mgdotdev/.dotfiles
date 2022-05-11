@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'lambdalisue/nerdfont.vim'
     Plug 'Yggdroot/indentLine'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-surround'
 call plug#end()
 
 syntax on
@@ -87,6 +88,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+vmap <leader>s S
+
 cmap w!! %!sudo tee > /dev/null %
 
 nnoremap Y y$
@@ -111,7 +114,6 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap > >gv
 vnoremap < <gv
-
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
