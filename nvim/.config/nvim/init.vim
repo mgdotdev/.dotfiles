@@ -50,17 +50,18 @@ let $FZF_DEFAULT_COMMAND =
 let mapleader = " "
 let g:deoplete#enable_at_startup = 1
 let g:coc_global_extensions =
-            \ [
+                \ [
                 \   'coc-pyright',
+                \   'coc-svelte',
+                \   'coc-go',
+                \   'coc-rust-analyzer',
+                \   'coc-clangd',
+                \   'coc-tsserver',
+                \   'coc-sh',
                 \   'coc-json',
                 \   'coc-git',
-                \   'coc-svelte',
-                \   'coc-tsserver',
                 \   'coc-yaml',
-                \   'coc-go',
-                \   'coc-clangd',
                 \   'coc-docker',
-                \   'coc-sh',
                 \   'coc-snippets',
                 \   'coc-explorer'
                 \ ]
@@ -93,7 +94,7 @@ vmap <leader>s S
 cmap w!! %!sudo tee > /dev/null %
 
 nnoremap Y y$
-nnoremap <leader>bb :ls<CR>:b<Space>
+nnoremap <leader>bb :ls<CR>:b
 nnoremap <leader>bda :Bd<CR>
 nnoremap <leader>z :FZF<CR>
 nnoremap <leader>a :Ack<space>
