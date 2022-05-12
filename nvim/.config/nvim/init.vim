@@ -94,13 +94,14 @@ vmap <leader>s S
 cmap w!! %!sudo tee > /dev/null %
 
 nnoremap Y y$
-nnoremap <leader>bb :ls<CR>:b
-nnoremap <leader>bda :Bd<CR>
-nnoremap <leader>z :FZF<CR>
-nnoremap <leader>a :Ack<space>
-nnoremap <leader>e :E<CR>
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
+nnoremap <leader>a :Ack<space>
+nnoremap <leader>e :E<CR>
+nnoremap <leader>z :FZF<CR>
+nnoremap <leader>bb :ls<CR>:b
+nnoremap <leader>bd :bd<CR> " delete current buffer
+nnoremap <leader>bD :Bd<CR> " delete all but current buffer
 
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
