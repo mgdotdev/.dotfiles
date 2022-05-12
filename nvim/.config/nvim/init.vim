@@ -98,6 +98,7 @@ nnoremap <leader>bb :ls<CR>:b
 nnoremap <leader>bda :Bd<CR>
 nnoremap <leader>z :FZF<CR>
 nnoremap <leader>a :Ack<space>
+nnoremap <leader>e :E<space>
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 
