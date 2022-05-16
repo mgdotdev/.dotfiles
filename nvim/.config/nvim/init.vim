@@ -6,6 +6,9 @@ call plug#begin('~/.config/nvim/plugins')
     Plug 'Yggdroot/indentLine'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
+    Plug 'othree/html5.vim'
+    Plug 'pangloss/vim-javascript'
+    Plug 'evanleck/vim-svelte', {'branch': 'main'}
 call plug#end()
 
 syntax on
