@@ -1,5 +1,5 @@
 [alias]
-    C = "!f() { git add -A && git commit -m $1; }; f"
+    C = "!f() { git add -A && git commit -m \"$1\"; }; f"
 [init]
 	defaultBranch = main
 [user]
