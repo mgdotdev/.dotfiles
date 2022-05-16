@@ -1,5 +1,5 @@
 [alias]
-    C = "!_ac() { git add -A; git commit -m $1; };_ac"
+    C = "!f() { git add -A && git commit -m $1; }; f"
 [init]
 	defaultBranch = main
 [user]
@@ -7,3 +7,4 @@
 	name = Michael Green
 [pull]
 	rebase = false
+
