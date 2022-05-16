@@ -1,0 +1,9 @@
+[alias]
+    C = "!_ac() { git add -A; git commit -m $1; };_ac"
+[init]
+	defaultBranch = main
+[user]
+	email = self@michaelgreen.dev
+	name = Michael Green
+[pull]
+	rebase = false
