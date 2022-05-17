@@ -103,7 +103,7 @@ nnoremap <leader>a :Ack<space>
 nnoremap <leader>e :E<CR>
 nnoremap <leader>z :FZF<CR>
 nnoremap <leader>bb :ls<CR>:b
-nnoremap <leader>bd :bd<CR> " delete current buffer
+nnoremap <leader>bd :bd!<CR> " delete current buffer
 nnoremap <leader>bD :Bd<CR> " delete all but current buffer
 
 inoremap , ,<c-g>u
