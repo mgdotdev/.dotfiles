@@ -1,5 +1,9 @@
 [alias]
+    l = log
     C = "!f() { git add -A && git commit -m \"$1\"; }; f"
+    st = status
+    co = checkout
+    pop = stash pop
 [init]
 	defaultBranch = main
 [user]
