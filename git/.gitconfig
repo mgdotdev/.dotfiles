@@ -1,8 +1,7 @@
 [alias]
-    l = log
     C = "!f() { git add -A && git commit -m \"$1\"; }; f"
-    st = status
-    co = checkout
+    I = "!f() { git init && git C \"initial commit\"; }; f"
+    B = checkout -b
     pop = stash pop
     RESET = reset --hard HEAD
 [init]
