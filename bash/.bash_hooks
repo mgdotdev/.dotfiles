@@ -1,0 +1,16 @@
+command_not_found_handle () {
+    if [[ $1 == \\* ]]
+    then
+        CMD=$1
+        ARGS=${*:2}
+        eval ${CMD:1} ${ARGS// /\\ }
+        return 0
+    elif [[ $1 == :* ]]
+    then
+        echo cmd: $1
+        return 0
+    fi
+    echo "bash: $1: command not found..."
+    return 127
+}
+
