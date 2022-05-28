@@ -1,12 +1,12 @@
 #!/bin/bash
 
-escape_flip() {
+_escape_flip() {
     CMD=$1
     ARGS=${*:2}
     eval ${CMD:1} ${ARGS// /\\ }
 }
 
-vimlike_commands() {
+_vimlike_commands() {
     CMD=$1
     CMD=${CMD:1}
     case $CMD in
@@ -16,12 +16,13 @@ vimlike_commands() {
 
 _command_not_found_handle() {
     echo "bash: $1: command not found..."
+    return 127
 }
 
 command_not_found_handle () {
     case $1 in
-        \\*) escape_flip $@ ;;
-        :*) vimlike_commands $@ ;;
+        \\*) _escape_flip $@ ;;
+        :*) _vimlike_commands $@ ;;
         *) _command_not_found_handle $@ ;;
     esac
 }
