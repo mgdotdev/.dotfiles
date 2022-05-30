@@ -3,8 +3,11 @@ require("vimrc")
 require("plugins")
 require("lsp")
 require("cmp")
+
 require("user.telescope")
 require("user.comment")
+require("user.snippets")
+require("user.nvim-tree")
 
 vim.g.python3_host_prog = "/usr/bin/python"
 vim.g.ack_use_cword_for_empty_search = 1
@@ -41,13 +44,15 @@ vim.keymap.set("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references{ s
 vim.keymap.set("n", "rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "gf", "<CMD>edit <cfile><CR>")
-vim.keymap.set("n", "<leader>a", ":Ack<space>")
+vim.keymap.set("n", "<leader>a", ":lua require('telescope.builtin').live_grep()<CR>")
+vim.keymap.set("n", "<leader>A", ":lua require('telescope.builtin').grep_string()<CR>")
 vim.keymap.set("n", "<leader>z", ":lua require('telescope.builtin').find_files()<CR>")
 vim.keymap.set("n", "<leader>bb", ":lua require('telescope.builtin').buffers()<CR>")
 vim.keymap.set("n", "<leader>bd", "<CMD>bd!<CR>")
 vim.keymap.set("n", "<leader>bD", ":execute '%bdelete|edit#|bdelete#'<CR>")
-vim.keymap.set("v", "<leader>s", "S")
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
+vim.keymap.set("v", "<leader>s", "S")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", ">", ">gv")
