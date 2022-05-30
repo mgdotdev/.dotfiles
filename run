@@ -18,14 +18,11 @@ install() {
         stow $folder
     done
     ~/.fzf/install
-    nvim +PlugInstall +qall
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     popd
 }
 
 remove() {
-        rm -rf ~/.config/coc/extensions/
-        nvim +PlugUninstall +qall
         pushd ~/.dotfiles
         for folder in $(ls -d */ | sed "s/,/ /g")
         do
