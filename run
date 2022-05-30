@@ -3,10 +3,10 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow the_silver_searcher neovim
+            sudo pacman -Sy stow the_silver_searcher neovim fd ripgrep
         elif [ -x "$(command -v apt-get)" ]
         then
-            sudo apt-get install stow silversearcher-ag neovim
+            sudo apt-get install stow silversearcher-ag neovim fd-find ripgrep
         fi
         python -m pip install pynvim
         git submodule update
@@ -19,6 +19,7 @@ install() {
     done
     ~/.fzf/install
     nvim +PlugInstall +qall
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     popd
 }
 
