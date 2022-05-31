@@ -34,6 +34,7 @@ shopt -s expand_aliases
 shopt -s histappend
 
 # exports
+export PATH=$PATH:$HOME/Applications
 
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f $HOME/.bash_hooks ] && source $HOME/.bash_hooks
