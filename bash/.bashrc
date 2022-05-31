@@ -6,8 +6,8 @@
 
 [ -r /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
 
-HISTSIZE=-1
-HSTFILESIZE=-1
+HISTSIZE=
+HSTFILESIZE=
 TERM=xterm-256color
 
 DISTRO=$(cat /etc/os-release | sed -rn "s/\<ID=(.*?)/\u\1/p")
