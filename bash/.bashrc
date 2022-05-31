@@ -15,16 +15,6 @@ unset DISTRO
 
 [ -r $HOME/.dir_colors ] && eval $(dircolors ~/.dir_colors)
 
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
-
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias more=less
-
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
 # it regains control.  #65623
@@ -38,9 +28,7 @@ export PATH=$PATH:$HOME/Applications
 
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f $HOME/.bash_hooks ] && source $HOME/.bash_hooks
-
-. "$HOME/.cargo/env"
-
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 set -o vi
