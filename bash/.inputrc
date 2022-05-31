@@ -1,0 +1,3 @@
+set show-mode-in-prompt on
+set vi-ins-mode-string "\e[38;5;45m$+ \e[m"
+set vi-cmd-mode-string "\e[38;5;45m$: \e[m"

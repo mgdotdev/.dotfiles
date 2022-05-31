@@ -3,10 +3,10 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow the_silver_searcher neovim fd ripgrep
+            sudo pacman -Sy stow the_silver_searcher neovim fd ripgrep fzf
         elif [ -x "$(command -v apt-get)" ]
         then
-            sudo apt-get install stow silversearcher-ag neovim fd-find ripgrep
+            sudo apt-get install stow silversearcher-ag fd-find ripgrep fzf
         fi
         python -m pip install pynvim
         git submodule update

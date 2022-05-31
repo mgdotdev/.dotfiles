@@ -1,15 +1,6 @@
 [submodule "vim/.vim/pack/vendor/start/darcula"]
 	path = vim/.vim/pack/vendor/start/darcula
 	url = https://github.com/doums/darcula.git
-[submodule "fzf"]
-	path = fzf
-	url = https://github.com/junegunn/fzf.git
-[submodule ".fzf"]
-	path = .fzf
-	url = https://github.com/junegunn/fzf.git
-[submodule "fzf/.fzf"]
-	path = fzf/.fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule "vim/.vim/pack/vendor/start/nerdtree"]
 	path = vim/.vim/pack/vendor/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
