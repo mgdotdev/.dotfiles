@@ -11,7 +11,7 @@ HSTFILESIZE=-1
 TERM=xterm-256color
 
 DISTRO=$(cat /etc/os-release | sed -rn "s/\<ID=(.*?)/\u\1/p")
-PS1="\e[38;5;45m$DISTRO\e[m \e[38;5;231m[\u]\e[m \e[38;5;45m\w\e[m \n"
+PS1="\e[38;5;45m$DISTRO\e[m [\u] \e[38;5;45m\w\e[m \n"
 unset DISTRO
 
 [ -r $HOME/.dir_colors ] && eval $(dircolors ~/.dir_colors)

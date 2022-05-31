@@ -28,6 +28,7 @@ vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 
 vim.opt.scrolloff = 10
+vim.opt.pumheight = 10
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -47,10 +48,13 @@ vim.keymap.set("n", "gf", "<CMD>edit <cfile><CR>")
 vim.keymap.set("n", "<leader>a", ":lua require('telescope.builtin').live_grep()<CR>")
 vim.keymap.set("n", "<leader>A", ":lua require('telescope.builtin').grep_string()<CR>")
 vim.keymap.set("n", "<leader>z", ":lua require('telescope.builtin').find_files()<CR>")
-vim.keymap.set("n", "<leader>bb", ":lua require('telescope.builtin').buffers()<CR>")
-vim.keymap.set("n", "<leader>bd", "<CMD>bd!<CR>")
-vim.keymap.set("n", "<leader>bD", ":execute '%bdelete|edit#|bdelete#'<CR>")
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>e", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>E", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<leader><C-e>", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>b", ":lua require('telescope.builtin').buffers()<CR>")
+vim.keymap.set("n", "<leader>db", "<CMD>bd!<CR>")
+vim.keymap.set("n", "<leader>dB", ":execute '%bdelete|edit#|bdelete#'<CR>")
+vim.keymap.set("n", "<leader>x", ":NvimTreeToggle<CR>")
 
 vim.keymap.set("v", "<leader>s", "S")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
