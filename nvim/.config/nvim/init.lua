@@ -15,7 +15,10 @@ vim.g.indentLine_char = '┆'
 vim.g.markdown_syntax_conceal = 0
 vim.g.mapleader = " "
 
+vim.opt.smarttab = true
+vim.opt.cindent = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hlsearch = false
