@@ -2,8 +2,8 @@ NVIM=$(which nvim)
 
 _install_appimage() {
     pushd $HOME
-    [ -d ./Applications ] && mkdir Applications
-    cd $HOME/Applications
+    [ ! -d ./Applications ] && mkdir Applications
+    cd Applications
     wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage -O nvim
     [ -z "${NVIM}" ] && NVIM="~/Applications/nvim"
     chmod +x $NVIM
@@ -15,11 +15,11 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow the_silver_searcher neovim fd ripgrep fzf
+            sudo pacman -Sy stow neovim fd ripgrep fzf
         elif [ -x "$(command -v apt-get)" ]
         then
             _install_appimage
-            sudo apt-get install stow silversearcher-ag fd-find ripgrep fzf
+            sudo apt-get install stow fd-find ripgrep fzf
         fi
         python -m pip install pynvim
         git submodule update
@@ -30,7 +30,6 @@ install() {
     do
         stow $folder
     done
-    ~/.fzf/install
     $NVIM --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     popd
 }
@@ -54,5 +53,4 @@ case $1 in
     "install") install $@ ;;
     "remove") remove $@ ;;
     "reinstall") reinstall $@ ;;
-    "_install_appimage") _install_appimage $@ ;;
 esac
