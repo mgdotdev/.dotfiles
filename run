@@ -6,7 +6,7 @@ _install_appimage() {
     cd Applications
     wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage -O nvim
     [ -z "${NVIM}" ] && NVIM="~/Applications/nvim"
-    echo $NVIM
+    chmod +x $NVIM
     popd
 }
 
