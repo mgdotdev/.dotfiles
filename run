@@ -1,8 +1,8 @@
 NVIM=$(which nvim)
 
 _install_appimage() {
-    pushd ~
-    [ -r ./Applications ] && mkdir Applications
+    pushd $HOME
+    [ -d ./Applications ] && mkdir Applications
     cd Applications
     wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage -O nvim
     [ -z "${NVIM}" ] && NVIM="~/Applications/nvim"
