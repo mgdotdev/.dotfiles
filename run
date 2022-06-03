@@ -40,7 +40,6 @@ remove() {
         do
             stow -D $folder
         done
-        ~/.fzf/uninstall
         popd
 }
 
