@@ -24,7 +24,10 @@ install() {
         python -m pip install pynvim
         git submodule update
     fi
-    pushd ~/.dotfiles
+
+    pushd ~/
+    [ -f .bashrc ] && mv .bashrc .bashrc.old
+    cd .dotfiles
 
     for folder in $(ls -d */ | sed "s/,/ /g")
     do
