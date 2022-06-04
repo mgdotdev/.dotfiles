@@ -1,3 +1,5 @@
+#!/bin/bash
+
 NVIM=$(which nvim)
 
 _install_appimage() {
