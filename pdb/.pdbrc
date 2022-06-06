@@ -1,0 +1,1 @@
+alias interact from IPython import embed; embed()
