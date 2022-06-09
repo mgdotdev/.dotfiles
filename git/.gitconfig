@@ -4,7 +4,7 @@
 [alias]
     C = "!f() { git add -A && git commit -m \"$1\"; }; f"
     I = "!f() { git init && git C \"initial commit\"; }; f"
-    B = checkout -b
+    co = checkout
     pop = stash pop
     RESET = reset --hard HEAD
 
