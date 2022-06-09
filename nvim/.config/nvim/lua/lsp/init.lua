@@ -11,6 +11,11 @@ require("nvim-lsp-installer").setup({
     }
 })
 
+vim.diagnostic.config{
+    signs = false,
+    update_in_insert = true,
+}
+
 require("lspconfig").pyright.setup{
     capabilities = capabilities
 }

@@ -3,6 +3,7 @@ colorscheme darcula
 
 hi! Normal ctermbg=NONE guibg=NONE
 highlight clear LineNr
+highlight clear SignColumn
 
 fun! TrimWhitespace()
     let l:save = winsaveview()

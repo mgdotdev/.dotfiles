@@ -57,6 +57,7 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip"
     use "L3MON4D3/LuaSnip"
     use "rafamadriz/friendly-snippets"
+    use 'lewis6991/gitsigns.nvim'
     use "nvim-treesitter/nvim-treesitter"
     use {
       'nvim-telescope/telescope.nvim',
