@@ -17,7 +17,7 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow neovim fd ripgrep fzf
+            sudo pacman -Sy stow neovim fd ripgrep fzf git-delta
         elif [ -x "$(command -v apt-get)" ]
         then
             _install_appimage
