@@ -59,6 +59,7 @@ vim.keymap.set("n", "<leader>b", ":lua require('telescope.builtin').buffers()<CR
 vim.keymap.set("n", "<leader>db", ":bd!<CR>")
 vim.keymap.set("n", "<leader>dB", ":execute '%bdelete|edit#|bdelete#'<CR>")
 vim.keymap.set("n", "<leader>x", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>w", "<C-w>w")
 
 vim.keymap.set("n", "<leader>hv", ":lua require('gitsigns').preview_hunk()<CR>")
 vim.keymap.set("n", "<leader>hb", ":lua require('gitsigns').blame_line{full=true}<CR>")
