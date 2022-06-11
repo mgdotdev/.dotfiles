@@ -70,7 +70,6 @@ vim.keymap.set("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>")
 vim.keymap.set("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>")
 vim.keymap.set("n", "<leader>hR", ":lua require('gitsigns').reset_buffer()<CR>")
 
-vim.keymap.set("v", "<leader>s", "S")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", ">", ">gv")
