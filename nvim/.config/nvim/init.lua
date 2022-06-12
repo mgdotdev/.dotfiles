@@ -1,6 +1,7 @@
+require("plugins")
+
 require("vimrc")
 
-require("plugins")
 require("lsp")
 require("cmp")
 
