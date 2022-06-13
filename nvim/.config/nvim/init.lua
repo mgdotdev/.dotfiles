@@ -10,6 +10,8 @@ require("user.comment")
 require("user.snippets")
 require("user.nvim-tree")
 require("user.gitsigns")
+require("user.treesitter")
+require("user.treesitter-context")
 
 vim.g.python3_host_prog = "/usr/bin/python"
 vim.g.ack_use_cword_for_empty_search = 1

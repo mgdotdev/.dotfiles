@@ -59,6 +59,7 @@ return packer.startup(function(use)
     use "rafamadriz/friendly-snippets"
     use 'lewis6991/gitsigns.nvim'
     use "nvim-treesitter/nvim-treesitter"
+    use 'nvim-treesitter/nvim-treesitter-context'
     use {
       'nvim-telescope/telescope.nvim',
       requires = {{
