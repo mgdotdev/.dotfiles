@@ -6,7 +6,7 @@ Installation
 ============
 ```
 cd ~
-git clone https://github.com/1mikegrn/.dotfiles --recursive
+git clone https://github.com/1mikegrn/.dotfiles
 cd ~/.dotfiles
 ./run install deps
 ```
