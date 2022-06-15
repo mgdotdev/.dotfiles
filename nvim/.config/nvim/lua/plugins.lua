@@ -41,7 +41,7 @@ packer.init {
 return packer.startup(function(use)
     use "wbthomason/packer.nvim"
     use "jiangmiao/auto-pairs"
-    use "doums/darcula"
+    use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
     use 'mileszs/ack.vim'
     use 'tpope/vim-surround'
     use 'numToStr/Comment.nvim'

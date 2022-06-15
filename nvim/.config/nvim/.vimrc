@@ -1,6 +1,7 @@
 syntax on
-colorscheme darcula
+colorscheme darcula-solid
 
+hi! NormalNC ctermbg=NONE guibg=NONE
 hi! Normal ctermbg=NONE guibg=NONE
 highlight clear LineNr
 highlight clear SignColumn
