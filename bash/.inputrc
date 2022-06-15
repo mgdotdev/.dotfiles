@@ -1,3 +1,6 @@
 set show-mode-in-prompt on
 set vi-ins-mode-string "$+ "
 set vi-cmd-mode-string "$: "
+
+set keymap vi-command
+"q":"\nexit\n"
