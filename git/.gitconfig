@@ -8,7 +8,7 @@
     s = status
     co = checkout
     pop = stash pop
-    r-hard = reset --hard HEAD
+    rh = reset --hard HEAD
 
 [interactive]
     diffFilter = delta --color-only
