@@ -79,6 +79,8 @@ set("n", "<leader>hu", ":lua require('gitsigns').undo_stage_hunk()<CR>")
 set("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>")
 set("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>")
 set("n", "<leader>hR", ":lua require('gitsigns').reset_buffer()<CR>")
+set("n", "<leader>hn", ":lua require('gitsigns').next_hunk()<CR>")
+set("n", "<leader>hp", ":lua require('gitsigns').prev_hunk()<CR>")
 
 set({"n", "v"}, "<leader>y", '"+y')
 set({"n", "v"}, "<leader>p", '"+p')
