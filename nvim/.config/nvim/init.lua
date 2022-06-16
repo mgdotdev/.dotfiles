@@ -13,76 +13,93 @@ require("user.gitsigns")
 require("user.treesitter")
 require("user.treesitter-context")
 
-vim.g.python3_host_prog = "/usr/bin/python"
-vim.g.ack_use_cword_for_empty_search = 1
-vim.g.indentLine_char = '┆'
-vim.g.markdown_syntax_conceal = 0
-vim.g.mapleader = " "
+local set = vim.keymap.set
+local opt = vim.opt
+local g = vim.g
+local lsp = vim.lsp
+local diagnostic = vim.diagnostic
 
-vim.opt.smarttab = true
-vim.opt.cindent = true
-vim.opt.smartindent = true
-vim.opt.autoindent = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.hlsearch = false
-vim.opt.errorbells = false
-vim.opt.hidden = true
-vim.opt.incsearch = true
-vim.opt.termguicolors = true
-vim.opt.expandtab = true
-vim.opt.wrap = false
-vim.opt.colorcolumn = "80"
+g.python3_host_prog = "/usr/bin/python"
+g.ack_use_cword_for_empty_search = 1
+g.indentLine_char = '┆'
+g.markdown_syntax_conceal = 0
+g.mapleader = " "
 
-vim.opt.sidescrolloff = 8
-vim.opt.scrolloff = 10
-vim.opt.pumheight = 10
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.laststatus = 2
-vim.opt.incsearch = true
-vim.opt.history = 10000
-vim.opt.guicursor = "i:block"
-vim.opt.signcolumn = "no"
+opt.smarttab = true
+opt.cindent = true
+opt.smartindent = true
+opt.autoindent = true
+opt.number = true
+opt.relativenumber = true
+opt.hlsearch = false
+opt.errorbells = false
+opt.hidden = true
+opt.incsearch = true
+opt.termguicolors = true
+opt.expandtab = true
+opt.wrap = false
+opt.colorcolumn = "80"
 
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-vim.keymap.set("n", "gr", ":lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>")
-vim.keymap.set("n", "rn", vim.lsp.buf.rename)
-vim.keymap.set("n", "Y", "y$")
-vim.keymap.set("n", "gf", ":edit <cfile><CR>")
-vim.keymap.set("n", "<leader>a", ":lua require('telescope.builtin').live_grep()<CR>")
-vim.keymap.set("n", "<leader>A", ":lua require('telescope.builtin').grep_string()<CR>")
-vim.keymap.set("n", "<leader>z", ":lua require('telescope.builtin').find_files()<CR>")
-vim.keymap.set("n", "<leader>e", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>E", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "<leader><C-e>", vim.lsp.buf.code_action)
-vim.keymap.set("n", "<leader>b", ":lua require('telescope.builtin').buffers()<CR>")
-vim.keymap.set("n", "<leader>db", ":bd!<CR>")
-vim.keymap.set("n", "<leader>dB", ":execute '%bdelete|edit#|bdelete#'<CR>")
-vim.keymap.set("n", "<leader>x", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>w", "<C-w>w")
+opt.sidescrolloff = 8
+opt.scrolloff = 10
+opt.pumheight = 10
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.laststatus = 2
+opt.incsearch = true
+opt.history = 10000
+opt.guicursor = "i:block"
+opt.signcolumn = "no"
 
-vim.keymap.set("n", "<leader>hv", ":lua require('gitsigns').preview_hunk()<CR>")
-vim.keymap.set("n", "<leader>hb", ":lua require('gitsigns').blame_line{full=true}<CR>")
-vim.keymap.set("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>")
-vim.keymap.set("n", "<leader>hs", ":lua require('gitsigns').stage_hunk()<CR>")
-vim.keymap.set("n", "<leader>hu", ":lua require('gitsigns').undo_stage_hunk()<CR>")
-vim.keymap.set("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>")
-vim.keymap.set("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>")
-vim.keymap.set("n", "<leader>hR", ":lua require('gitsigns').reset_buffer()<CR>")
+set("n", "gd", lsp.buf.definition)
+set("n", "gt", lsp.buf.type_definition)
+set("n", "gi", lsp.buf.implementation)
+set("n", "gr", ":lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>")
+set("n", "rn", lsp.buf.rename)
+set("n", "Y", "y$")
+set("n", "gf", ":edit <cfile><CR>")
+set("n", "<leader>a", ":lua require('telescope.builtin').live_grep()<CR>")
+set("n", "<leader>A", ":lua require('telescope.builtin').grep_string()<CR>")
+set("n", "<leader>z", ":lua require('telescope.builtin').find_files()<CR>")
+set("n", "<leader>e", diagnostic.goto_next)
+set("n", "<leader>E", diagnostic.goto_prev)
+set("n", "<leader><C-e>", lsp.buf.code_action)
+set("n", "<leader>b", ":lua require('telescope.builtin').buffers()<CR>")
+set("n", "<leader>db", ":bd!<CR>")
+set("n", "<leader>dB", ":execute '%bdelete|edit#|bdelete#'<CR>")
+set("n", "<leader>x", ":NvimTreeToggle<CR>")
+set("n", "<leader>w", "<C-w>w")
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("v", "<", "<gv")
+set("n", "<leader>hv", ":lua require('gitsigns').preview_hunk()<CR>")
+set("n", "<leader>hb", ":lua require('gitsigns').blame_line{full=true}<CR>")
+set("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>")
+set("n", "<leader>hs", ":lua require('gitsigns').stage_hunk()<CR>")
+set("n", "<leader>hu", ":lua require('gitsigns').undo_stage_hunk()<CR>")
+set("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>")
+set("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>")
+set("n", "<leader>hR", ":lua require('gitsigns').reset_buffer()<CR>")
 
-vim.keymap.set("i", ",", ",<c-g>u")
-vim.keymap.set("i", ".", ".<c-g>u")
-vim.keymap.set("i", "!", "!<c-g>u")
-vim.keymap.set("i", "?", "?<c-g>u")
+set({"n", "v"}, "<leader>y", '"+y')
+set({"n", "v"}, "<leader>p", '"+p')
 
-vim.keymap.set({"n", "v"}, "<leader>y", '"+y')
-vim.keymap.set({"n", "v"}, "<leader>p", '"+p')
+set("v", "J", ":m '>+1<CR>gv=gv")
+set("v", "K", ":m '<-2<CR>gv=gv")
+set("v", ">", ">gv")
+set("v", "<", "<gv")
+
+set("i", ",", ",<c-g>u")
+set("i", ".", ".<c-g>u")
+set("i", "!", "!<c-g>u")
+set("i", "?", "?<c-g>u")
+
+set("i", "<A-j>", "<C-O>j")
+set("i", "<A-k>", "<C-O>k")
+set("i", "<A-h>", "<C-O>h")
+set("i", "<A-l>", "<C-O>l")
+set("i", "<A-a>", "<C-O>A")
+set("i", "<A-i>", "<C-O>I")
+set("i", "<A-w>", "<C-O>w")
+set("i", "<A-b>", "<C-O>b")
+set("i", "<A-e>", "<C-O>e")
+
