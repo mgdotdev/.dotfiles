@@ -47,6 +47,7 @@ return packer.startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'lambdalisue/nerdfont.vim'
     use "williamboman/nvim-lsp-installer"
+    use "tpope/vim-sleuth"
     use "neovim/nvim-lspconfig"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"

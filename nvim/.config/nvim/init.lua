@@ -71,7 +71,7 @@ set("n", "<leader>bD", ":execute '%bdelete|edit#|bdelete#'<CR>")
 set("n", "<leader>x", ":NvimTreeToggle<CR>")
 set("n", "<leader>w", "<C-w>w")
 
-set("n", "<leader>t", "yiw|i<<esc>ea></><esc>hpF>")
+set("n", "<leader>t", "yiw<esc>i<<esc>ea></><esc>hpF>")
 set("n", "<leader>hv", ":lua require('gitsigns').preview_hunk()<CR>")
 set("n", "<leader>hb", ":lua require('gitsigns').blame_line{full=true}<CR>")
 set("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>")
