@@ -8,6 +8,7 @@ alias df='df -h'
 alias free='free -m'
 alias more=less
 
+alias sus="systemctl suspend"
 alias tl="tmux ls"
 alias ta="tmux attach"
 alias tmux='function f(){ if [ -z $1 ]; then tmux; elif [ -d $1 ]; then DIR=$(readlink -f $1); tmux new-session -A -s $DIR -c $DIR; else tmux $@; fi; };f'
