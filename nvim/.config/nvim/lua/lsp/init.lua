@@ -49,4 +49,6 @@ require("lspconfig").dockerls.setup{
 require("lspconfig").clangd.setup{
     capabilities = capabilities
 }
-
+require("lspconfig").cssls.setup{
+    capabilities = capabilities
+}
