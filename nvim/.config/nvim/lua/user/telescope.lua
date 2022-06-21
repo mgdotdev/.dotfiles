@@ -66,6 +66,9 @@ telescope.setup{
                 }
             end,
         },
+        current_buffer_fuzzy_find = {
+            theme = "dropdown",
+        },
         buffers = {
             theme = "dropdown",
         }
