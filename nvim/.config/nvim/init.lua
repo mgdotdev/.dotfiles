@@ -97,7 +97,4 @@ set("i", "!", "!<c-g>u")
 set("i", "?", "?<c-g>u")
 
 set("i", "<C-c>", "<esc>")
-set("i", "<C-l>", "<esc>A")
-set("i", "<C-h>", "<esc>I")
-set("i", "<C-j>", "<esc>o")
-set("i", "<C-k>", "<esc>O")
+
