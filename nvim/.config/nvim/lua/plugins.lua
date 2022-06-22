@@ -74,6 +74,10 @@ return packer.startup(function(use)
         },
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
+    use {
+        "kwkarlwang/bufjump.nvim",
+        config = function() require("bufjump").setup() end
+    }
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
