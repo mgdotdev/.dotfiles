@@ -1,5 +1,6 @@
 syntax on
 colorscheme darcula-solid
+set termguicolors
 
 hi! NormalNC ctermbg=NONE guibg=NONE
 hi! Normal ctermbg=NONE guibg=NONE

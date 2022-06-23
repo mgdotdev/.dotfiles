@@ -41,7 +41,6 @@ packer.init {
 return packer.startup(function(use)
     use "wbthomason/packer.nvim"
     use "jiangmiao/auto-pairs"
-    use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
     use 'mileszs/ack.vim'
     use 'tpope/vim-surround'
     use 'numToStr/Comment.nvim'
@@ -61,6 +60,8 @@ return packer.startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use "nvim-treesitter/nvim-treesitter"
     use 'nvim-treesitter/nvim-treesitter-context'
+    use 'norcalli/nvim-colorizer.lua'
+    use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
     use {
       'nvim-telescope/telescope.nvim',
       requires = {{

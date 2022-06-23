@@ -12,6 +12,7 @@ require("user.nvim-tree")
 require("user.gitsigns")
 require("user.treesitter")
 require("user.treesitter-context")
+require("user.colorizer")
 
 local set = vim.keymap.set
 local opt = vim.opt
