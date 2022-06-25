@@ -3,6 +3,6 @@ require('nvim-tree').setup{
     open_on_tab = false,
     view = {
         side = "right",
-        width = 40,
+        width = 65,
     }
 }
