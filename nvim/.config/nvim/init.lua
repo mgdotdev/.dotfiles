@@ -50,7 +50,6 @@ opt.shiftwidth = 4
 opt.laststatus = 2
 opt.incsearch = true
 opt.history = 10000
-opt.guicursor = "i:block"
 opt.signcolumn = "no"
 
 set("n", "gd", lsp.buf.definition)
@@ -102,5 +101,6 @@ set("i", ".", ".<c-g>u")
 set("i", "!", "!<c-g>u")
 set("i", "?", "?<c-g>u")
 
-set("i", "<C-c>", "<esc>")
+set({"i", "v", "n", "c"}, "<C-q>", "<esc>")
 
+set("c", "q", "qa!")
