@@ -11,16 +11,24 @@ local function merge(tables)
     return result
 end
 
-local globs = {
-    "--glob",
+local function globber(glob_table)
+    local result = {}
+    for _, item in pairs(glob_table) do
+        table.insert(result, "--glob")
+        table.insert(result, item)
+    end
+    return result
+end
+
+local glob_table = {
     "!**/.git/**",
-    "--glob",
     "!**/venv/**",
-    "--glob",
     "!**/__pycache__/**",
-    "--glob",
     "!**/node_modules/**",
+    "!**/.pytest_cache/**",
 }
+
+local globs = globber(glob_table)
 
 local hiddens = {
     "--hidden",
