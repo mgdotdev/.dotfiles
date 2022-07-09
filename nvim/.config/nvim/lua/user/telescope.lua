@@ -26,6 +26,7 @@ local glob_table = {
     "!**/__pycache__/**",
     "!**/node_modules/**",
     "!**/.pytest_cache/**",
+    "!dist/**",
 }
 
 local globs = globber(glob_table)
@@ -79,6 +80,7 @@ telescope.setup{
         },
         buffers = {
             theme = "dropdown",
+            initial_mode = "normal",
         }
     },
 }
