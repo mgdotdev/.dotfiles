@@ -1,0 +1,46 @@
+env:
+  TERM: xterm-256color
+scrolling:
+  history: 100000
+
+font:
+  normal:
+    family: Consolas
+
+  size: 17.0
+
+schemes:
+  Basic: &Basic
+    primary:
+      background: "#18191A"
+      foreground: "#E0E0E0"
+
+  Nord: &Nord
+    # Default colors
+    primary:
+      background: "#18191a"
+      foreground: "#f5f5f5"
+
+    # Normal colors
+    normal:
+      black:   '#3B4252'
+      red:     '#d00000'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#82c0ff'
+      magenta: '#B48EAD'
+      cyan:    '#88C0D0'
+      white:   '#f5f5f5'
+
+    # Bright colors
+    bright:
+      black:   '#4C566A'
+      red:     '#d00000'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#82c0ff'
+      magenta: '#B48EAD'
+      cyan:    '#8FBCBB'
+      white:   '#f5f5f5'
+
+colors: *Nord
