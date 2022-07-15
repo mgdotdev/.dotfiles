@@ -77,7 +77,7 @@ set("n", "<leader>w", "<C-w>w")
 
 set("n", "<leader>t", "yiw<esc>i<<esc>ea />")
 set("n", "<leader>T", "yiw<esc>i<<esc>ea></><esc>hpF>")
-set("n", "<leader><C-t>", "yiw<esc>i<<esc>ea></><esc>hp0vt<yf>a<CR><esc>O<tab><esc>")
+set("n", "<leader><C-t>", "yiw<esc>i<<esc>ea></><esc>hp0vt<yf>a<CR><esc>k$")
 set("n", "<leader>hv", ":lua require('gitsigns').preview_hunk()<CR>")
 set("n", "<leader>hb", ":lua require('gitsigns').blame_line{full=true}<CR>")
 set("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>")
