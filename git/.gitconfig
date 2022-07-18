@@ -6,6 +6,7 @@
     i = "!f() { git init && git C \"initial commit\"; }; f"
     d = diff
     s = status
+    b = branch
     co = checkout
     pop = stash pop
     rh = reset --hard HEAD
