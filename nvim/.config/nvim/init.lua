@@ -30,7 +30,6 @@ opt.smarttab = true
 opt.cindent = true
 opt.smartindent = true
 opt.autoindent = true
-opt.number = true
 opt.relativenumber = true
 opt.hlsearch = false
 opt.errorbells = false
