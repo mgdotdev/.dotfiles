@@ -35,3 +35,4 @@ export GOPATH=$HOME/.local/lib/go/site-packages
 set -o vi
 
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+

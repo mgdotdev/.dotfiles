@@ -41,12 +41,12 @@ packer.init {
 return packer.startup(function(use)
     use "wbthomason/packer.nvim"
     use "jiangmiao/auto-pairs"
+    use "Vimjas/vim-python-pep8-indent"
     use 'mileszs/ack.vim'
     use 'tpope/vim-surround'
     use 'numToStr/Comment.nvim'
     use 'lambdalisue/nerdfont.vim'
     use "williamboman/nvim-lsp-installer"
-    use "tpope/vim-sleuth"
     use "neovim/nvim-lspconfig"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
