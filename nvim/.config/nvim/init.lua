@@ -31,6 +31,7 @@ opt.cindent = true
 opt.smartindent = true
 opt.autoindent = true
 opt.relativenumber = true
+opt.number = true
 opt.hlsearch = false
 opt.errorbells = false
 opt.hidden = true
