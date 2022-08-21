@@ -18,4 +18,5 @@ alias date='function f(){ if [ -z $1 ]; then date; elif [ $1 == "_" ]; then date
 alias fzd='function f(){ if [ -z $1 ]; then DIR="."; else DIR=$(realpath -s $1); fi; TGT=$(find $DIR -type d | fzf); echo $TGT; };f'
 alias fzcd='function f(){ cd $(fzd $@); };f'
 alias env='compgen -v  | sort | while read var; do [ -z "${!var}" ] || echo $var=${!var} ; done'
+alias ls='ls -la --color=auto --group-directories-first'
 alias :q=exit
