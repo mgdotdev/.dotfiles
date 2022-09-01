@@ -26,7 +26,14 @@ shopt -s histappend
 
 # exports
 export PATH=$PATH:$HOME/Applications
-export GOPATH=$HOME/.local/lib/go/site-packages
+export PATH=$PATH:/usr/local/go/bin
+
+GOPATH=$HOME/.local/lib/go
+export GOPATH=$GOPATH
+
+export PATH=$PATH:$GOPATH/bin
+
+
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f $HOME/.bash_hooks ] && source $HOME/.bash_hooks
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
