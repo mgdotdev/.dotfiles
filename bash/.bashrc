@@ -19,7 +19,6 @@ unset DISTRO
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
 # it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
 shopt -s checkwinsize
 shopt -s expand_aliases
 shopt -s histappend
@@ -33,7 +32,6 @@ export GOPATH=$GOPATH
 
 export PATH=$PATH:$GOPATH/bin
 
-
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f $HOME/.bash_hooks ] && source $HOME/.bash_hooks
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
@@ -42,4 +40,7 @@ export PATH=$PATH:$GOPATH/bin
 set -o vi
 
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+
+[ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
+[ -s "$HOME/.nvm/bash_completion" ] && source "$HOME/.nvm/bash_completion"
 
