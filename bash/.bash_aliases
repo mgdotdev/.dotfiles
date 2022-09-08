@@ -9,6 +9,9 @@ alias df='df -h'
 alias free='free -m'
 alias more=less
 
+alias cs="xclip -selection clipboard"
+alias vs="xclip -o -selection clipboard"
+
 alias tl="tmux ls"
 alias ta="tmux attach"
 
