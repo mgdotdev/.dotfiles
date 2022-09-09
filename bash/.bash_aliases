@@ -12,6 +12,7 @@ alias more=less
 alias cs="xclip -selection clipboard"
 alias vs="xclip -o -selection clipboard"
 
+alias t="tmux"
 alias tl="tmux ls"
 alias ta="tmux attach"
 
