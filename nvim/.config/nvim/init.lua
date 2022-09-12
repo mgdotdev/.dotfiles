@@ -90,8 +90,9 @@ set("n", "<leader>hR", ":lua require('gitsigns').reset_buffer()<CR>")
 set("n", "<leader>hn", ":lua require('gitsigns').next_hunk()<CR>")
 set("n", "<leader>hp", ":lua require('gitsigns').prev_hunk()<CR>")
 
-set({"n", "v"}, "<leader>y", '"+y')
-set({"n", "v"}, "<leader>p", '"+p')
+set({"n", "v"}, "<leader>Y", '"+y')
+set({"n", "v"}, "<leader>P", '"+p')
+set({"n", "v"}, "<leader>p", '"_dp')
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
