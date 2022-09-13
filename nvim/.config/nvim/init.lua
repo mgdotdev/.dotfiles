@@ -92,7 +92,7 @@ set("n", "<leader>hp", ":lua require('gitsigns').prev_hunk()<CR>")
 
 set({"n", "v"}, "<leader>Y", '"+y')
 set({"n", "v"}, "<leader>P", '"+p')
-set({"n", "v"}, "<leader>p", '"_dp')
+set({"n", "v"}, "<leader>p", '"_dP')
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
