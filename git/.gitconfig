@@ -7,6 +7,7 @@
     d = diff
     s = status
     b = branch
+    ls = "!f() { if [ -z $1 ]; then TGT=\"b\"; else TGT=$1; fi; case $TGT in b) git branch; ;; s) git stash list; ;; l) git log; ;; esac; }; f"
     clear-out = "!f() { if [ -z $1 ]; then BRANCH=$(git branch | grep \"\\*\\(.*\\)\" | cut -b 1,2 --complement); else BRANCH=$1; fi; git branch --merged $BRANCH | grep -v $BRANCH | xargs git branch -d; }; f"
     co = checkout
     fzf = "!f() { git checkout $(git branch | fzf); }; f"
