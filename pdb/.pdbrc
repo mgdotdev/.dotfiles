@@ -1,1 +1,1 @@
-alias ipy from IPython import embed; embed()
+alias interact from IPython import embed; embed()
