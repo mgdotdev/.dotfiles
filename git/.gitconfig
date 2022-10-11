@@ -12,6 +12,7 @@
     co = checkout
     fzf = "!f() { git checkout $(git branch | fzf); }; f"
     self = "!f() { git branch | sed -rn \"s/\\*\\ (.*)/\\1/p\"; }; f"
+    pto = "!f() { git push --set-upstream origin $(git self); }; f"
     pop = stash pop
     rh = reset --hard HEAD
 
