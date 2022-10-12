@@ -1,1 +1,2 @@
 alias interact from IPython import embed; embed()
+alias pj import json; print(json.dumps(%1, indent=2, sort_keys=1))
