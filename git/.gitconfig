@@ -12,8 +12,8 @@
     clear-out = "!f() { if [ -z $1 ]; then BRANCH=$(git branch | grep \"\\*\\(.*\\)\" | cut -b 1,2 --complement); else BRANCH=$1; fi; git branch --merged $BRANCH | grep -v $BRANCH | xargs git branch -d; }; f"
     co = checkout
     fzf = "!f() { git checkout $(git branch | fzf); }; f"
-    self = git branch --show-current
-    pto = "!f() { git push --set-upstream origin $(git self); }; f"
+    self = branch --show-current
+    pso = "!f() { git push --set-upstream origin $(git self); }; f"
     pop = stash pop
     rh = reset --hard HEAD
 
@@ -40,5 +40,3 @@
 [pull]
 	rebase = false
 
-[push]
-    autoSetupRemote = true
