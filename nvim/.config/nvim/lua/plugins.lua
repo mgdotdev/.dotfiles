@@ -79,10 +79,6 @@ return packer.startup(function(use)
         "kwkarlwang/bufjump.nvim",
         config = function() require("bufjump").setup() end
     }
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
-    })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
