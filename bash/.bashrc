@@ -32,6 +32,7 @@ export GOPATH=$GOPATH
 
 export PATH=$PATH:$GOPATH/bin
 
+[ -f $HOME/.bash_functions ] && source $HOME/.bash_functions
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f $HOME/.bash_hooks ] && source $HOME/.bash_hooks
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
