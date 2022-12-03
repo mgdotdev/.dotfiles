@@ -32,6 +32,6 @@ sr() {
     fi
     SED_CMD="s"
 
-    rg $SEARCH -l | xargs sed $SED_FLAGS "$SED_CMD$SEP$SEARCH$SEP$REPLACE$SEP$SED_SFX"
+    rg "$SEARCH" -l | xargs sed $SED_FLAGS "$SED_CMD$SEP$SEARCH$SEP$REPLACE$SEP$SED_SFX"
 }
 
