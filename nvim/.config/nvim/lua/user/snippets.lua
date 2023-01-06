@@ -12,7 +12,7 @@ ls.add_snippets("python", {
             ls.text_node({"\" in __import__(\"json\").dumps("}),
             ls.insert_node(2, "target"),
             ls.text_node({"):", "    __import__(\"pdb\").set_trace()", "    "}),
-            ls.insert_node(0, "pass"),
+            ls.insert_node(0, ""),
         }
     )
 })
