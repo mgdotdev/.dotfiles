@@ -45,6 +45,7 @@ return packer.startup(function(use)
     use 'mileszs/ack.vim'
     use 'tpope/vim-surround'
     use 'numToStr/Comment.nvim'
+    use 'xuhdev/vim-latex-live-preview'
     use 'lambdalisue/nerdfont.vim'
     use "williamboman/nvim-lsp-installer"
     use "neovim/nvim-lspconfig"
