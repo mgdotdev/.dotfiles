@@ -62,6 +62,7 @@ return packer.startup(function(use)
     use "nvim-treesitter/nvim-treesitter"
     use 'nvim-treesitter/nvim-treesitter-context'
     use 'norcalli/nvim-colorizer.lua'
+    use "lukas-reineke/indent-blankline.nvim"
     use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
     use {
       'nvim-telescope/telescope.nvim',

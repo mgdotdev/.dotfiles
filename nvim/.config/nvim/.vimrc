@@ -19,3 +19,7 @@ augroup MG_GROUP
     autocmd StdinReadPre * let s:std_in=1
 augroup END
 
+" ['|', '¦', '┆', '┊']
+let g:indent_blankline_char = '┃'
+let g:indent_blankline_use_treesitter = v:true
+
