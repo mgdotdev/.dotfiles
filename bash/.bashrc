@@ -12,6 +12,9 @@ TERM=xterm-256color
 
 DISTRO=$(cat /etc/os-release | sed -rn "s/\<ID=(.*?)/\u\1/p")
 PS1="\e[38;5;45m$DISTRO\e[m [\u@\h] \e[38;5;45m\w\e[m \n"
+LANG=en_US.UTF-8
+LC_CTYPE=en_US.UTF-8
+
 unset DISTRO
 
 [ -r $HOME/.dir_colors ] && eval $(dircolors ~/.dir_colors)
