@@ -21,7 +21,7 @@ alias env='compgen -v  | sort | while read var; do [ -z "${!var}" ] || echo $var
 alias fzd='function f(){ if [ -z $1 ]; then DIR="."; else DIR=$(realpath -s $1); fi; TGT=$(find $DIR -type d | fzf); echo $TGT; };f'
 
 alias mkcd='function f(){ mkdir $1; cd $1; };f'
-alias tmux='function f(){ if [ -z $1 ]; then tmux; elif [ -d $1 ]; then DIR=$(readlink -f $1); tmux new-session -A -s $DIR -c $DIR; else tmux $@; fi; };f'
+alias tmux='function f(){ if [ -z $1 ]; then tmux -u; elif [ -d $1 ]; then DIR=$(readlink -f $1); tmux -u new-session -A -s $DIR -c $DIR; else tmux $@; fi; };f'
 alias date='function f(){ if [ -z $1 ]; then date; elif [ $1 == "_" ]; then date +"%A %d %B %Y"; else date "$1"; fi; };f'
 alias fzcd='function f(){ cd $(fzd $@); };f'
 
