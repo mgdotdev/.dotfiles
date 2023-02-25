@@ -6,7 +6,7 @@ _install_appimages() {
     pushd $HOME
     [ ! -d ./Applications ] && mkdir Applications
     cd Applications
-    wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage -O nvim
+    wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage -O nvim
     [ -z "${NVIM}" ] && NVIM="~/Applications/nvim"
     chmod +x $NVIM
     popd
@@ -21,7 +21,7 @@ install() {
         elif [ -x "$(command -v apt-get)" ]
         then
             _install_appimages
-            sudo apt-get install stow fd-find curl ripgrep fzf
+            sudo apt-get install stow fd-find curl ripgrep fzf python3-pip
         fi
         python3 -m pip install pynvim
         git submodule update
