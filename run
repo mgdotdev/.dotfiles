@@ -19,32 +19,32 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow neovim curl fd ripgrep fzf git-delta
+            sudo pacman -Sy stow neovim tmux curl fd ripgrep fzf git-delta
         elif [ -x "$(command -v apt-get)" ]
         then
             _install_appimages
-            sudo apt-get install stow fd-find curl ripgrep fzf python3-pip
+            sudo apt-get install stow tmux fd-find curl ripgrep fzf python3-pip
         fi
         python3 -m pip install pynvim
         git submodule update
-    fi
 
-    if [[ -z $(command -v pyenv) ]]
-    then
-        curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-    fi
+        if [[ -z $(command -v pyenv) ]]
+        then
+            curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+        fi
 
-    if [[ -z $(command -v nvm)  ]]
-    then
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-        nvm install node
-    fi
+        if [[ -z $(command -v nvm)  ]]
+        then
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+            nvm install node
+        fi
 
-    if [[ -z $(command -v go) ]]
-    then
-        go_version="go1.20.1.linux-amd64.tar.gz"
-        wget https://go.dev/dl/$go_version
-        rm -rf /usr/local/go && tar -C /usr/local -xzf $go_version && rm $go_version
+        if [[ -z $(command -v go) ]]
+        then
+            go="go1.20.1.linux-amd64.tar.gz"
+            wget https://go.dev/dl/$go
+            rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $go && rm $go
+        fi
     fi
 
     pushd ~/
