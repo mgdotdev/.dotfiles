@@ -17,11 +17,11 @@ install() {
     then
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow neovim fd ripgrep fzf git-delta
+            sudo pacman -Sy stow neovim curl fd ripgrep fzf git-delta
         elif [ -x "$(command -v apt-get)" ]
         then
             _install_appimages
-            sudo apt-get install stow fd-find ripgrep fzf
+            sudo apt-get install stow fd-find curl ripgrep fzf
         fi
         python3 -m pip install pynvim
         git submodule update
