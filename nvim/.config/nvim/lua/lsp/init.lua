@@ -31,7 +31,7 @@ require("lspconfig").rust_analyzer.setup{
 require("lspconfig").svelte.setup{
     capabilities = capabilities
 }
-require("lspconfig").sumneko_lua.setup{
+require("lspconfig").lus_ls.setup{
     capabilities = capabilities
 }
 require("lspconfig").tsserver.setup{
