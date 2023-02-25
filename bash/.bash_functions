@@ -42,6 +42,6 @@ pycache_remove() {
 
 fix_the_damn_wifi() {
     sudo iw $(cat /proc/net/wireless | python -c 'import re, sys; print(re.search("(\\w+):", sys.stdin.read()).group(1))') \
-        set power_state off
+        set power_save off
 }
 
