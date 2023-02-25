@@ -26,14 +26,30 @@ shopt -s checkwinsize
 shopt -s expand_aliases
 shopt -s histappend
 
-# exports
+### exports
+
+# app images
 export PATH=$PATH:$HOME/Applications
-export PATH=$PATH:/usr/local/go/bin
 
-GOPATH=$HOME/.local/lib/go
-export GOPATH=$GOPATH
+# pyenv
+PYENV_ROOT="$HOME/.pyenv"
 
-export PATH=$PATH:$GOPATH/bin
+if [[ ! -d PYENV_ROOT ]]
+then
+    curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+fi
+export PYENV_ROOT=$PYENV_ROOT
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Go
+if [[ -d /usr/local/go ]]
+then
+    export PATH=$PATH:/usr/local/go/bin
+    GOPATH=$HOME/.local/lib/go
+    export GOPATH=$GOPATH
+    export PATH=$PATH:$GOPATH/bin
+fi
 
 [ -f $HOME/.bash_functions ] && source $HOME/.bash_functions
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases

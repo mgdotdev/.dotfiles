@@ -2,6 +2,8 @@ syntax on
 colorscheme darcula-solid
 set termguicolors
 set encoding=utf-8
+set nocindent
+set virtualedit=block
 
 hi! NormalNC ctermbg=NONE guibg=NONE
 hi! Normal ctermbg=NONE guibg=NONE

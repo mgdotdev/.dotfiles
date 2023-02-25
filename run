@@ -2,7 +2,7 @@
 
 NVIM=$(which nvim)
 
-_install_appimage() {
+_install_appimages() {
     pushd $HOME
     [ ! -d ./Applications ] && mkdir Applications
     cd Applications
@@ -20,10 +20,10 @@ install() {
             sudo pacman -Sy stow neovim fd ripgrep fzf git-delta
         elif [ -x "$(command -v apt-get)" ]
         then
-            _install_appimage
+            _install_appimages
             sudo apt-get install stow fd-find ripgrep fzf
         fi
-        python -m pip install pynvim
+        python3 -m pip install pynvim
         git submodule update
     fi
 

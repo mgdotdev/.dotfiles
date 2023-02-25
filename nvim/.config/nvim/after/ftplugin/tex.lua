@@ -1,2 +1,2 @@
-vim.api.nvim_command("LLPStartPreview")
+-- vim.api.nvim_command("LLPStartPreview")
 

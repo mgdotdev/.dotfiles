@@ -35,3 +35,6 @@ sr() {
     rg "$SEARCH" -l | xargs sed $SED_FLAGS "$SED_CMD$SEP$SEARCH$SEP$REPLACE$SEP$SED_SFX"
 }
 
+pycache_remove() {
+    find . | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf
+}

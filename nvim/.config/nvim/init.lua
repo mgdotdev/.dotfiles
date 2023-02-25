@@ -27,7 +27,6 @@ g.markdown_syntax_conceal = 0
 g.mapleader = " "
 
 opt.smarttab = true
-opt.cindent = true
 opt.smartindent = true
 opt.autoindent = true
 opt.relativenumber = true
@@ -83,7 +82,9 @@ set("n", "<leader>X", ":NvimTreeRefresh<CR>:NvimTreeFindFile<CR>")
 set("n", "<leader>w", "<C-w>w")
 set("n", "<leader>q", ":q<CR>")
 
-set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+set("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
+set("n", "<leader>s", ":set spell<CR><esc>ea<C-x>s")
+set("n", "<leader>S", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 set("n", "<leader>t", "yiw<esc>i<<esc>ea /><esc>hi")
 set("n", "<leader>T", "yiw<esc>i<<esc>ea></><esc>hpF>")
 set("n", "<leader><C-t>", "yiw<esc>i<<esc>ea></><esc>hp0vt<yf>a<CR><esc>k$")
