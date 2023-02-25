@@ -6,7 +6,7 @@ install() {
         shared_deps="\
             wget tar make gdb lcov pkg-config libbz2-dev gcc build-essential \
             libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev fzf iw \
-            libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+            libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev docker \
             lzma lzma-dev tk-dev uuid-dev zlib1g-dev stow tmux curl ripgrep \
             python3-pip"
         if [ -x "$(command -v pacman)" ]

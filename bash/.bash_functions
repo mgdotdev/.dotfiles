@@ -40,7 +40,7 @@ pycache_remove() {
     find . | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf
 }
 
-fix_the_damn_wifi() {
+wifi_latency_fix() {
     sudo iw $(cat /proc/net/wireless | python -c 'import re, sys; print(re.search("(\\w+):", sys.stdin.read()).group(1))') \
         set power_save off
 }
