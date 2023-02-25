@@ -34,13 +34,12 @@ export PATH=$PATH:$HOME/Applications
 # pyenv
 PYENV_ROOT="$HOME/.pyenv"
 
-if [[ ! -d PYENV_ROOT ]]
+if [[ -d PYENV_ROOT ]]
 then
-    curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+    export PYENV_ROOT=$PYENV_ROOT
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 fi
-export PYENV_ROOT=$PYENV_ROOT
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # Go
 if [[ -d /usr/local/go ]]

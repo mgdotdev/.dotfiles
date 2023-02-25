@@ -1,14 +1,16 @@
 #!/bin/bash
 
-NVIM=$(which nvim)
 
 _install_appimages() {
     pushd $HOME
     [ ! -d ./Applications ] && mkdir Applications
-    cd Applications
-    wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage -O nvim
-    [ -z "${NVIM}" ] && NVIM="~/Applications/nvim"
-    chmod +x $NVIM
+    nvim=$HOME/Applications/nvim
+    if [ ! -f $nvim ]
+    then
+        cd Applications
+        wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage -O nvim
+        chmod +x $nvim
+    fi
     popd
 }
 
@@ -25,6 +27,17 @@ install() {
         fi
         python3 -m pip install pynvim
         git submodule update
+    fi
+
+    if [[ ! -d PYENV_ROOT ]]
+    then
+        curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+    fi
+
+    if [[ ! command -v nvm  ]]
+    then
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+        nvm install node
     fi
 
     pushd ~/
