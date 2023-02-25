@@ -34,7 +34,7 @@ export PATH=$PATH:$HOME/Applications
 # pyenv
 PYENV_ROOT="$HOME/.pyenv"
 
-if [[ -d PYENV_ROOT ]]
+if [[ -d $PYENV_ROOT ]]
 then
     export PYENV_ROOT=$PYENV_ROOT
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
