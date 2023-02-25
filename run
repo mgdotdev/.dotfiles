@@ -45,6 +45,11 @@ install() {
             wget https://go.dev/dl/$go
             rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $go && rm $go
         fi
+
+        if [[ -z $(command -v cargo) ]]
+        then
+            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        fi
     fi
 
     pushd ~/
