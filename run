@@ -29,7 +29,7 @@ install() {
         git submodule update
     fi
 
-    if [[ ! -d $PYENV_ROOT ]]
+    if [[ -z $(command -v pyenv) ]]
     then
         curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
     fi
