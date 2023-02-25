@@ -17,13 +17,19 @@ _install_appimages() {
 install() {
     if [ $2 = "deps" ]
     then
+        shared_deps="\
+            wget tar make gdb lcov pkg-config libbz2-dev gcc build-essential \
+            libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev fzf \
+            libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+            lzma lzma-dev tk-dev uuid-dev zlib1g-dev stow tmux curl ripgrep \
+            python3-pip"
         if [ -x "$(command -v pacman)" ]
         then
-            sudo pacman -Sy stow neovim tmux curl fd ripgrep fzf git-delta
+            sudo pacman -Sy neovim fd git-delta $shared_deps
         elif [ -x "$(command -v apt-get)" ]
         then
             _install_appimages
-            sudo apt-get install stow tmux fd-find curl ripgrep fzf python3-pip
+            sudo apt-get install tmux fd-find python3-pip $shared_deps
         fi
         python3 -m pip install pynvim
         git submodule update
@@ -31,6 +37,8 @@ install() {
         if [[ -z $(command -v pyenv) ]]
         then
             curl -s -S -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+            pyenv install 3.11
+            pyenv global 3.11
         fi
 
         if [[ -z $(command -v nvm)  ]]
@@ -54,6 +62,7 @@ install() {
 
     pushd ~/
     [ -f .bashrc ] && mv .bashrc .bashrc.old
+    [ -f .profile ] && mv .profile .profile.old
     cd .dotfiles
 
     for folder in $(ls -d */ | sed "s/,/ /g")
