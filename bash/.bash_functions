@@ -32,9 +32,16 @@ sr() {
     fi
     SED_CMD="s"
 
-    rg "$SEARCH" -l | xargs sed $SED_FLAGS "$SED_CMD$SEP$SEARCH$SEP$REPLACE$SEP$SED_SFX"
+    rg "$SEARCH" -l | xargs sed $SED_FLAGS \
+        "$SED_CMD$SEP$SEARCH$SEP$REPLACE$SEP$SED_SFX"
 }
 
 pycache_remove() {
     find . | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf
 }
+
+fix_the_damn_wifi() {
+    sudo iw $(cat /proc/net/wireless | perl -ne '/(\w+):/ && print $1') \
+        set power_state off
+}
+

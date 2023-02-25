@@ -1,25 +1,11 @@
 #!/bin/bash
 
-
-_install_appimages() {
-    pushd $HOME
-    [ ! -d ./Applications ] && mkdir Applications
-    nvim=$HOME/Applications/nvim
-    if [ ! -f $nvim ]
-    then
-        cd Applications
-        wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage -O nvim
-        chmod +x $nvim
-    fi
-    popd
-}
-
 install() {
     if [ $2 = "deps" ]
     then
         shared_deps="\
             wget tar make gdb lcov pkg-config libbz2-dev gcc build-essential \
-            libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev fzf \
+            libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev fzf iw \
             libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
             lzma lzma-dev tk-dev uuid-dev zlib1g-dev stow tmux curl ripgrep \
             python3-pip"
@@ -28,9 +14,19 @@ install() {
             sudo pacman -Sy neovim fd git-delta $shared_deps
         elif [ -x "$(command -v apt-get)" ]
         then
-            _install_appimages
+            pushd $HOME
+            [ ! -d ./Applications ] && mkdir Applications
+            nvim=$HOME/Applications/nvim
+            if [ ! -f $nvim ]
+            then
+                cd Applications
+                wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage -O nvim
+                chmod +x $nvim
+            fi
+            popd
             sudo apt-get install tmux fd-find python3-pip $shared_deps
         fi
+
         python3 -m pip install pynvim
         git submodule update
 
