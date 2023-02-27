@@ -47,7 +47,8 @@ return packer.startup(function(use)
     use 'numToStr/Comment.nvim'
     -- use 'xuhdev/vim-latex-live-preview'
     use 'lambdalisue/nerdfont.vim'
-    use "williamboman/nvim-lsp-installer"
+    -- use "williamboman/nvim-lsp-installer"
+    use "williamboman/mason.nvim"
     use "neovim/nvim-lspconfig"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
@@ -76,7 +77,7 @@ return packer.startup(function(use)
         requires = {
           'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
     use {
         "kwkarlwang/bufjump.nvim",

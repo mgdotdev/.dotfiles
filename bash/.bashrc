@@ -50,6 +50,9 @@ then
     export PATH=$PATH:$GOPATH/bin
 fi
 
+# rust
+source "$HOME/.cargo/env"
+
 [ -f $HOME/.bash_functions ] && source $HOME/.bash_functions
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 [ -f $HOME/.bash_hooks ] && source $HOME/.bash_hooks
@@ -61,5 +64,4 @@ set -o vi
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 [ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
-[ -s "$HOME/.nvm/bash_completion" ] && source "$HOME/.nvm/bash_completion"
-
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
