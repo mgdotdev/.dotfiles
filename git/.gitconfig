@@ -3,16 +3,45 @@
     editor = nvim
 
 [alias]
-    c = "!f() { git add -A && git commit -m \"$1\"; }; f"
-    i = "!f() { git init && git C \"initial commit\"; }; f"
-    y = c commit
-    ya = "!f() { git add -A && git commit --amend -m \"commit\" }"
+    c = "!f() { git add -A && git commit -m \"${1-commit}\"; }; f"
+    i = "!f() { git init && git c \"initial commit\"; }; f"
+    pushf = push --force
+    a = "!f() { \
+            add=\"git add -A\"; \
+            commit=\"git commit --amend\"; \
+            if [ -z $1 ]; \
+            then $add && $commit --no-edit; \
+            else $add && $commit -m \"$1\"; \
+            fi; \
+        }; f"
+    af = "!f() { git a && git pushf; }; f"
     d = diff
     s = status
     b = branch
-    ls = "!f() { if [ -z $1 ]; then TGT=\"n\"; else TGT=$1; fi; case $TGT in b) git branch; ;; n) git diff --name-only; ;; s) git stash list; ;; l) git log; ;; esac; }; f"
-    clear-out = "!f() { if [ -z $1 ]; then branch=$(git branch --show-current); else branch=$1; fi; git branch --merged $branch | grep -v $branch$ | xargs git branch -d; }; f"
-    squash = "!f() { if [ -z $1 ]; then echo \"requires a merge-base\"; exit 1; else base=$1; fi; git reset --soft $(git merge-base HEAD $base) && git commit --reuse-message=HEAD@{1}; }; f"
+    ls = "!f() { \
+        tgt=${1-n}; \
+        case $tgt in \
+        b) git branch; ;; \
+        n) git diff --name-only; ;; \
+        s) git stash list; ;; \
+        l) git log; ;; \
+        esac; }; f"
+    clear-out = "!f() { \
+        if [ -z $1 ]; \
+        then branch=$(git branch --show-current); \
+        else branch=$1; \
+        fi; \
+        git branch --merged $branch \
+        | grep -v $branch$ \
+        | xargs git branch -d; \
+        }; f"
+    squash = "!f() { \
+        if [ -z $1 ]; \
+        then echo \"requires a merge-base\"; exit 1; \
+        else base=$1; \
+        fi; \
+        git reset --soft $(git merge-base HEAD $base) \
+        && git commit --reuse-message=HEAD@{1}; }; f"
     co = checkout
     fzf = "!f() { git checkout $(git branch | fzf); }; f"
     self = branch --show-current
