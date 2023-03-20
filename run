@@ -5,7 +5,7 @@ install() {
     then
         shared_deps="\
             wget tar make gdb lcov pkg-config libbz2-dev gcc build-essential \
-            libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev fzf iw \
+            libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev iw \
             libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev docker \
             lzma lzma-dev tk-dev uuid-dev zlib1g-dev stow tmux curl ripgrep \
             python3-pip"
@@ -54,6 +54,18 @@ install() {
         then
             curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
         fi
+
+        [[ ! -d $HOME/Programs ]] && mkdir $HOME/Programs
+
+        pushd $HOME/Programs
+        if [[ ! -d $HOME/Programs/fzf ]]
+        then
+            git clone https://github.com/junegunn/fzf.git
+            cd fzf
+            chmode +x ./install
+            ./install
+        fi
+        popd
     fi
 
     pushd ~/
