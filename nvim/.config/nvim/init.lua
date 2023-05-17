@@ -81,6 +81,7 @@ set("n", "<leader>x", ":NvimTreeRefresh<CR>:NvimTreeToggle<CR>")
 set("n", "<leader>X", ":NvimTreeRefresh<CR>:NvimTreeFindFile<CR>")
 set("n", "<leader>w", "<C-w>w")
 set("n", "<leader>q", ":q<CR>")
+set("n", "<leader>n", ":set nu!<Enter>:set rnu!<Enter>")
 
 set("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
 set("n", "<leader>s", ":set spell<CR><esc>ea<C-x>s")
