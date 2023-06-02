@@ -15,6 +15,7 @@
             fi; \
         }; f"
     af = "!f() { git a && git pushf; }; f"
+    meh = "!f() { git add -A && git commit -m \"¯\\_(ツ)_/¯\"; }; f"
     d = diff
     s = status
     b = branch
