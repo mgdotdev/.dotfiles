@@ -10,6 +10,8 @@ HISTSIZE=
 HSTFILESIZE=
 TERM=xterm-256color
 
+[ -n $(command -v nvim) ] && export EDITOR=nvim
+
 DISTRO=$(cat /etc/os-release | sed -rn "s/\<ID=(.*?)/\u\1/p")
 PS1="\e[38;5;45m$DISTRO\e[m [\u@\h] \e[38;5;45m\w\e[m \n"
 LANG=en_US.UTF-8
