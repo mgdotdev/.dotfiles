@@ -5,6 +5,7 @@ alias fgrep='fgrep --colour=auto'
 
 alias c="clear"
 alias cp="cp -i"
+alias mv="mv -v"
 alias df='df -h'
 alias free='free -m'
 alias more=less

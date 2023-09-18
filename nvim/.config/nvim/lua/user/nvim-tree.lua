@@ -7,5 +7,10 @@ require('nvim-tree').setup{
     view = {
         side = "right",
         width = 65,
+    },
+    filters = {
+        custom = {
+            "__pycache__"
+        }
     }
 }

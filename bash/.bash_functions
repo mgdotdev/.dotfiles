@@ -1,39 +1,41 @@
 #!/usr/bin/bash
 
 sr() {
-    SEP="/"
-    FIRE=false
+    sr_sep="/"
+    sr_fire=false
+    sr_verbose=""
 
     for opt in $@
     do
         case $opt in
-            -s) SEP="$2"; shift 2 ;;
-            --fire) FIRE=true; shift ;;
-            *) ARGS+=("$1"); shift ;;
+            -s) sr_sep="$2"; shift 2 ;;
+            --fire) sr_fire=true; shift ;;
+            -v) sr_verbose="--verbose"; shift ;;
+            *) sr_args+=("$1"); shift ;;
         esac
     done
 
-    SEARCH=${ARGS[0]}
-    REPLACE=${ARGS[1]}
+    sr_search=${sr_args[0]}
+    sr_replace=${sr_args[1]}
 
-    if $FIRE
+    if $sr_fire
     then
-        SED_FLAGS="-ri"
-        SED_SFX="g"
+        sr_sed_flags="-ri"
+        sr_sed_sfx="g"
     else
-        SED_FLAGS="-rn"
-        SED_SFX="p"
+        sr_sed_flags="-rn"
+        sr_sed_sfx="p"
     fi
 
-    if [[ "$SEARCH" =~ $SEP || "$REPLACE" =~ $SEP ]]
+    if [[ "$sr_search" =~ $sr_sep || "$sr_replace" =~ $sr_sep ]]
     then
         echo "separator is present in params, use -s to select another"
         return
     fi
-    SED_CMD="s"
+    sed_cmd="s"
 
-    rg "$SEARCH" -l | xargs sed $SED_FLAGS \
-        "$SED_CMD$SEP$SEARCH$SEP$REPLACE$SEP$SED_SFX"
+    rg "$sr_search" -l | xargs $sr_verbose sed $sr_sed_flags \
+        "$sr_sed_cmd$sr_sep$sr_search$sr_sep$sr_replace$sr_sep$sr_sed_sfx"
 }
 
 pycache_remove() {
