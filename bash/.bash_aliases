@@ -3,6 +3,7 @@ alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
 
+alias x="exit"
 alias c="clear"
 alias cp="cp -i"
 alias mv="mv -v"
