@@ -23,9 +23,11 @@ end
 local glob_table = {
     "!**/.git/**",
     "!**/venv/**",
+    "!**/.venv/**",
     "!**/__pycache__/**",
     "!**/node_modules/**",
     "!**/.pytest_cache/**",
+    "!**/.mypy_cache/**",
     "!**/dist/**",
 }
 

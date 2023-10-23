@@ -5,7 +5,10 @@
 [alias]
     c = "!f() { git add -A && git commit -m \"${1-commit}\"; }; f"
     i = "!f() { git init && git c \"initial commit\"; }; f"
-    pushf = push --force
+    pl = pull
+    ph = push
+    phf = push --force
+    pushf = phf
     a = "!f() { \
             add=\"git add -A\"; \
             commit=\"git commit --amend\"; \
