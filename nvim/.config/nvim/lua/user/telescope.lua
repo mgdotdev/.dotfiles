@@ -46,6 +46,9 @@ telescope.setup{
             i = {
                 ["<Tab>"] = actions.move_selection_next,
                 ["<S-Tab>"] = actions.move_selection_previous,
+            },
+            n = {
+                ['<C-d>'] = require('telescope.actions').delete_buffer,
             }
         }
     },
