@@ -29,6 +29,7 @@ local glob_table = {
     "!**/.pytest_cache/**",
     "!**/.mypy_cache/**",
     "!**/dist/**",
+    "!**/build/**",
 }
 
 local globs = globber(glob_table)
