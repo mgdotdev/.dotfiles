@@ -4,11 +4,9 @@
 
 [alias]
     c = "!f() { git add -A && git commit -m \"${1-commit}\"; }; f"
+    cp = "!f() { git add -A && git commit -m \"${1-commit}\" && git push; }; f"
     i = "!f() { git init && git c \"initial commit\"; }; f"
-    pl = pull
-    ph = push
-    phf = push --force
-    pushf = phf
+    pushf = push --force
     a = "!f() { \
             add=\"git add -A\"; \
             commit=\"git commit --amend\"; \
