@@ -15,7 +15,7 @@
             else $add && $commit -m \"$1\"; \
             fi; \
         }; f"
-    af = "!f() { git a && git pushf; }; f"
+    af = "!f() { git a $1 && git pushf; }; f"
     meh = "!f() { git add -A && git commit -m \"¯\\_(ツ)_/¯\"; }; f"
     d = diff
     s = status
