@@ -53,6 +53,7 @@ install() {
         if [[ -z $(command -v cargo) ]]
         then
             curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+            cargo install git-delta
         fi
 
         [[ ! -d $HOME/Programs ]] && mkdir $HOME/Programs
