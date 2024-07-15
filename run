@@ -8,7 +8,7 @@ install() {
             libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev iw \
             libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev docker \
             lzma lzma-dev tk-dev uuid-dev zlib1g-dev stow tmux curl ripgrep \
-            python3-pip"
+            python3-pip python3-venv python-is-python3"
         if [ -x "$(command -v pacman)" ]
         then
             sudo pacman -Sy neovim fd git-delta $shared_deps
