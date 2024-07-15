@@ -20,7 +20,7 @@ install() {
             if [ ! -f $nvim ]
             then
                 cd Applications
-                wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage -O nvim
+                wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage -O nvim
                 chmod +x $nvim
             fi
             popd

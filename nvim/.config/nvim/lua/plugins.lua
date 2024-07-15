@@ -73,11 +73,10 @@ return packer.startup(function(use)
       }}
     }
     use {
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-          'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+        'nvim-tree/nvim-web-devicons', -- optional
+      },
     }
     use {
         "kwkarlwang/bufjump.nvim",
